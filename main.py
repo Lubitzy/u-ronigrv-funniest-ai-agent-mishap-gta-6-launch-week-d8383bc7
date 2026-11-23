@@ -38,6 +38,8 @@ def main(argv):
         fail("line must not be blank")
     if "\n" in LINE or "\r" in LINE:
         fail("line must be a single line")
+    if LINE.count(".") != 1:
+        fail("line must be exactly one sentence")
     target_dir = pick_output_folder(argv)
     target_dir.mkdir(parents=True, exist_ok=True)
     target = target_dir / "entry.txt"
